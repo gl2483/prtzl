@@ -24,3 +24,9 @@ node_modules
 
 # build files
 build
+
+# compiled files
+*.exe
+compiled.c
+compiled.out
+result.out

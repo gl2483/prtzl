@@ -1,0 +1,50 @@
+
+Number dfs(Vertex v)
+
+  List out_list;
+  Number i;
+  Number len;
+  String visited;
+  Edge e;
+  Vertex dest;
+
+  v.visited = "true";
+  print_vertex(v);
+  out_list = v.out;
+  len = list_length(out_list);
+  i = 0;
+
+  while( i < len) do
+
+    e = out_list[i];
+    dest = e.dest;
+    visited = dest.visited;
+
+    if( !cmp("true", visited) )
+      dfs(dest);
+    endif
+
+    i = i + 1;
+
+  endwhile
+
+  return 0;
+
+endfunc
+
+Vertex a = <+ "a" +>;
+Vertex b = <+ "b" +>;
+Vertex c = <+ "c" +>;
+Vertex d = <+ "d" +>;
+Vertex e = <+ "e" +>;
+Vertex f = <+ "f" +>;
+Vertex h = <+ "h" +>;
+
+link(a, b, 1);
+link(a, c, 1);
+link(b, d, 1);
+link(b, e, 1);
+link(c, f, 1);
+link(c, h, 1);
+
+dfs(a);
